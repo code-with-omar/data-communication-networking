@@ -1,0 +1,14 @@
+Router>enable 
+Router#configure terminal 
+Router(config)#interface FastEthernet0/0
+Router(config-if)#ip address 192.165.31.1 255.255.255.0 
+Router(config-if)#no shutdown
+
+Router(config-if)#exit
+Router(config)#interface FastEthernet0/1
+Router(config-if)#ip address 192.165.32.1 255.255.255.0 
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
