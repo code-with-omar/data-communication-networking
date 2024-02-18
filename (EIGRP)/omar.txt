@@ -1,0 +1,181 @@
+প্রতিটি রাউটারের আলাদা নাম এসাইন করি।
+1.
+Router>
+Router>en
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Dhanmondi
+Dhanmondi (config)#exit
+Dhanmondi #
+Dhanmondi #wr
+
+2.
+Router>
+Router>en
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Gulshan
+Gulshan(config)#exit
+Gulshan#
+%SYS-5-CONFIG_I: Configured from console by console
+Gulshan#wr
+
+
+3.
+Router>
+
+Router>en
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname uttora
+uttora(config)#exit
+uttora#
+%SYS-5-CONFIG_I: Configured from console by console
+uttora#wr
+
+প্রত্যেকটি রাউটারে ইন্টারফেসগুলো আপ করি
+1
+Dhanmondi>
+Dhanmondi>en
+Dhanmondi#configure terminal
+Dhanmondi(config)#interface ethernet 0/0/0
+Dhanmondi(config-if)#ip address 172.16.0.1 255.255.0.0
+Dhanmondi(config-if)#no shutdown
+%LINK-5-CHANGED: Interface Ethernet0/0/0, changed state to up
+Dhanmondi(config-if)#exit
+Dhanmondi(config)#interface fast
+Dhanmondi(config)#interface fastEthernet 0/0
+Dhanmondi(config-if)#ip address 172.15.0.1 255.255.0.0
+Dhanmondi(config-if)#no shutdown
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+Dhanmondi(config-if)#exit
+Dhanmondi(config)#interface fastEthernet 0/1
+Dhanmondi(config-if)#ip address 192.168.1.1 255.255.255.0
+Dhanmondi(config-if)#no shutdown
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+Dhanmondi(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+Dhanmondi(config-if)#exit
+Dhanmondi(config)#exit
+Dhanmondi#
+%SYS-5-CONFIG_I: Configured from console by console
+Dhanmondi#wr
+
+2.
+Gulshan#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gulshan(config)#interface ethernet 0/1/0
+Gulshan(config-if)#ip address 172.17.0.1 255.255.0.0
+
+Gulshan(config-if)#no shutdown
+%LINK-5-CHANGED: Interface Ethernet0/1/0, changed state to up
+Gulshan(config-if)#exit
+Gulshan(config)#interface fastEthernet 0/0
+Gulshan(config-if)#ip address 172.15.0.2 255.255.0.0
+Gulshan(config-if)#no shutdown
+Gulshan(config-if)#
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Gulshan(config-if)#exit
+Gulshan(config)#interface fastEthernet 0/1
+Gulshan(config-if)#ip address 192.168.2.1 255.255.255.0
+Gulshan(config-if)#no shutdown
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+Gulshan(config-if)#exit
+Gulshan(config)#exit
+Gulshan#
+
+
+3.Uttara router interface configuration
+
+Uttara#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+Uttara(config)#interface ethernet 0/1/0
+Uttara(config-if)#ip address 172.17.0.2 255.255.0.0
+Uttara(config-if)#no shutdown
+Uttara(config-if)#
+%LINK-5-CHANGED: Interface Ethernet0/1/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/1/0, changed state to up
+Uttara(config-if)#
+Uttara(config-if)#exit
+Uttara(config)#interface ethernet 0/0/0
+Uttara(config-if)#ip address 172.16.0.2 255.255.0.0
+Uttara(config-if)#no shutdown
+Uttara(config-if)#
+%LINK-5-CHANGED: Interface Ethernet0/0/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/0/0, changed state to up
+Uttara(config-if)#
+Uttara(config-if)#exit
+Uttara(config)#interface fastEthernet 0/1
+Uttara(config-if)#ip address 192.168.3.1 255.255.255.0
+Uttara(config-if)#no shutdown
+Uttara(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+Uttara(config-if)#exit
+Uttara(config)#exit
+Uttara#
+%SYS-5-CONFIG_I: Configured from console by console 
+Uttara#wr
+Building configuration…
+[OK]
+
+
+
+প্রতিটি রাউটারে EIGRP চালু করি।
+Dhanmondi router EIGRP configuration
+——————————————————
+Dhanmondi>
+
+Dhanmondi>en
+Dhanmondi#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Dhanmondi(config)#router
+Dhanmondi(config)#router eigrp 20
+Dhanmondi(config-router)#network 192.168.1.0
+Dhanmondi(config-router)#network 172.16.0.0
+Dhanmondi(config-router)#network 172.15.0.0
+Dhanmondi(config-router)#exit
+Dhanmondi(config)#exit
+Dhanmondi#
+
+2.Gulshan route EIGRP command line
+—————————————————-
+Gulshan>
+
+Gulshan>en
+Gulshan#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gulshan(config)#rou
+Gulshan(config)#router eigrp 20
+Gulshan(config-router)#network 192.168.2.0
+Gulshan(config-router)#network 172.17.0.0
+Gulshan(config-router)#network 172.15.0.0
+Gulshan(config-router)#
+%DUAL-5-NBRCHANGE: IP-EIGRP 20: Neighbor 172.15.0.1 (FastEthernet0/0) is up: new adjacency
+
+3.Uttara router EIGRP configuration
+
+——————————————————————–
+Uttara>
+
+Uttara>en
+Uttara#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Uttara(config)#router eigrp 20
+Uttara(config-router)#network 192.168.3.0
+Uttara(config-router)#network 172.16.0.0
+Uttara(config-router)#
+%DUAL-5-NBRCHANGE: IP-EIGRP 20: Neighbor 172.16.0.1 (Ethernet0/0/0) is up: new adjacency
+Uttara(config-router)#network 172.17.0.0
+Uttara(config-router)#
+%DUAL-5-NBRCHANGE: IP-EIGRP 20: Neighbor 172.17.0.1 (Ethernet0/1/0) is up: new adjacency
+
+
+link: https://www.tsoftit.com/tutorial/ccna-bangla-%e0%a6%b2%e0%a7%87%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0-%e0%a7%a7%e0%a7%a6-%e0%a6%a1%e0%a6%be%e0%a7%9f%e0%a6%a8%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%95-%e0%a6%b0%e0%a6%be%e0%a6%89/
