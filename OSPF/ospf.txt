@@ -1,0 +1,553 @@
+simulation
+
+২. প্রতিটি রাউটারের আলাদা নাম এসাইন করি।
+
+Dhaka router host name change command line
+
+Router>en
+
+Router#conf
+
+Router#configure ter
+
+Router#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Router(config)#host
+
+Router(config)#hostname Dhaka
+
+Dhaka(config)#exit
+
+Dhaka#
+
+ 
+
+Comilla router host name change command line
+Router>
+
+Router>en
+
+Router#conf
+
+Router#configure ter
+
+Router#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Router(config)#host
+
+Router(config)#hostname Comilla
+
+Comilla(config)#exit
+
+ 
+
+Netrakona router hostname change command line
+Router>en
+
+Router#conf
+
+Router#configure ter
+
+Router#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Router(config)#host
+
+Router(config)#hostname Netrakona
+
+Netrakona(config)#exit
+
+Netrakona#
+
+%SYS-5-CONFIG_I: Configured from console by console
+
+ 
+
+Netrakona#wr
+
+Building configuration.
+
+ 
+
+৩. প্রত্যেকটি রাউটারে ইন্টারফেসগুলো আপ করি।
+
+Dhaka router interface up and IP assign command
+Dhaka>en
+
+Dhaka#conf
+
+Dhaka#configure ter
+
+Dhaka#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Dhaka(config)#inter
+
+Dhaka(config)#interface fast
+
+Dhaka(config)#interface fastEthernet 0/0
+
+Dhaka(config-if)#ip add
+
+Dhaka(config-if)#ip address 172.15.0.1 255.255.255.252
+
+Dhaka(config-if)#no sh
+
+Dhaka(config-if)#no shutdown
+
+ 
+
+Dhaka(config-if)#
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+ 
+
+Dhaka(config-if)#exit
+
+Dhaka(config)#inter
+
+Dhaka(config)#interface fast
+
+Dhaka(config)#interface fastEthernet 0/1
+
+Dhaka(config-if)#ip add
+
+Dhaka(config-if)#ip address 172.16.0.1 255.255.255.252
+
+Dhaka(config-if)#no sh
+
+Dhaka(config-if)#no shutdown
+
+ 
+
+ 
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+Dhaka(config-if)#exit
+
+Dhaka(config)#inter
+
+Dhaka(config)#interface eth
+
+Dhaka(config)#interface ethernet 0/0/0
+
+Dhaka(config-if)#ip add
+
+Dhaka(config-if)#ip address 192.168.1.1 255.255.255.0
+
+Dhaka(config-if)#no sh
+
+Dhaka(config-if)#no shutdown
+
+ 
+
+%LINK-5-CHANGED: Interface Ethernet0/0/0, changed state to up
+
+ 
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/0/0, changed state to up
+
+ 
+
+Dhaka(config-if)#exit
+
+Dhaka(config)#exit
+
+Dhaka#
+
+ 
+
+Comilla router Interface IP assign and up command line
+Comilla>en
+
+Comilla#inter
+
+Comilla#conf
+
+Comilla#configure ter
+
+Comilla#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Comilla(config)#inter
+
+Comilla(config)#interface fast
+
+Comilla(config)#interface fastEthernet 0/0
+
+Comilla(config-if)#ip add
+
+Comilla(config-if)#ip address 172.15.0.2 255.255.255.252
+
+Comilla(config-if)#no sh
+
+Comilla(config-if)#no shutdown
+
+ 
+
+Comilla(config-if)#
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+ 
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+ 
+
+Comilla(config-if)#
+
+Comilla(config-if)#exit
+
+Comilla(config)#inter
+
+Comilla(config)#interface eth
+
+Comilla(config)#interface ethernet 0/0/0
+
+Comilla(config-if)#ip add
+
+Comilla(config-if)#ip address 172.17.0.1 255.255.255.252
+
+Comilla(config-if)#no sh
+
+Comilla(config-if)#no shutdown
+
+ 
+
+Comilla(config-if)#
+
+%LINK-5-CHANGED: Interface Ethernet0/0/0, changed state to up
+
+ 
+
+Comilla(config-if)#
+
+Comilla(config-if)#exit
+
+Comilla(config)#inter
+
+Comilla(config)#interface fast
+
+Comilla(config)#interface fastEthernet 0/1
+
+Comilla(config-if)#ip add
+
+Comilla(config-if)#ip address 192.168.2.1 255.255.255.0
+
+Comilla(config-if)#no sh
+
+Comilla(config-if)#no shutdown
+
+ 
+
+Comilla(config-if)#
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+ 
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+ 
+
+Comilla(config-if)#
+
+Comilla(config-if)#exit
+
+Comilla(config)#exit
+
+Comilla#
+
+ 
+
+Netrakona router interface up and IP assign command line
+
+Netrakona>
+
+Netrakona>en
+
+Netrakona#conf
+
+Netrakona#configure ter
+
+Netrakona#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Netrakona(config)#inter
+
+Netrakona(config)#interface fast
+
+Netrakona(config)#interface fastEthernet 0/1
+
+Netrakona(config-if)#ip add
+
+Netrakona(config-if)#ip
+
+Netrakona(config-if)#ip add
+
+Netrakona(config-if)#ip address 172.16.0.2 255.255.255.252
+
+Netrakona(config-if)#no sh
+
+Netrakona(config-if)#no shutdown
+
+ 
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+ 
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+ 
+
+Netrakona(config-if)#exit
+
+Netrakona(config)#inter
+
+Netrakona(config)#interface eth
+
+Netrakona(config)#interface ethernet 0/0/0
+
+Netrakona(config-if)#ip add
+
+Netrakona(config-if)#ip address 172.17.0.2 255.255.255.252
+
+Netrakona(config-if)#no sh
+
+Netrakona(config-if)#no shutdown
+
+ 
+
+Netrakona(config-if)#
+
+%LINK-5-CHANGED: Interface Ethernet0/0/0, changed state to up
+
+ 
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/0/0, changed state to up
+
+ 
+
+Netrakona(config-if)#
+
+Netrakona(config-if)#exit
+
+Netrakona(config)#inter
+
+Netrakona(config)#interface fast
+
+Netrakona(config)#interface fastEthernet 0/0
+
+Netrakona(config-if)#ip add
+
+Netrakona(config-if)#ip address 192.168.3.1 255.255.255.0
+
+Netrakona(config-if)#no sh
+
+Netrakona(config-if)#no shutdown
+
+ 
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+ 
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+ 
+
+Netrakona(config-if)#exit
+
+Netrakona(config)#exit
+
+Netrakona#
+
+%SYS-5-CONFIG_I: Configured from console by console
+
+ 
+
+ 
+
+৪. প্রতিটি রাউটারে OSPF  চালু করি।
+
+Dhaka router OSPF configuration command line
+Dhaka>en
+
+Dhaka#conf
+
+Dhaka#configure ter
+
+Dhaka#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Dhaka(config)#rou
+
+Dhaka(config)#router os
+
+Dhaka(config)#router ospf 10
+
+Dhaka(config-router)#net
+
+Dhaka(config-router)#network 192.168.1.0 0.0.0.255 are
+
+Dhaka(config-router)#network 192.168.1.0 0.0.0.255 area 0
+
+Dhaka(config-router)#net
+
+Dhaka(config-router)#network 172.16.0.0 0.0.0.3 are
+
+Dhaka(config-router)#network 172.16.0.0 0.0.0.3 area 0
+
+Dhaka(config-router)#net
+
+Dhaka(config-router)#network 172.15.0.0 0.0.0.3 ar
+
+Dhaka(config-router)#network 172.15.0.0 0.0.0.3 area 0
+
+Dhaka(config-router)#exit
+
+Dhaka(config)#exit
+
+Dhaka#
+
+ 
+
+Comilla router OSPF configuration command line
+
+Comilla>
+
+Comilla>en
+
+Comilla#con
+
+Comilla#confi
+
+Comilla#configure ter
+
+Comilla#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Comilla(config)#ro
+
+Comilla(config)#router os
+
+Comilla(config)#router ospf 10
+
+Comilla(config-router)#net
+
+Comilla(config-router)#network 192.168.2.0 0.0.0.255 are
+
+Comilla(config-router)#network 192.168.2.0 0.0.0.255 area 0
+
+Comilla(config-router)#net
+
+Comilla(config-router)#network 172.17.0.0 0.0.0.3 are
+
+Comilla(config-router)#network 172.17.0.0 0.0.0.3 area 0
+
+Comilla(config-router)#net
+
+Comilla(config-router)#network 172.15.0.0 0.0.0.3 ar
+
+Comilla(config-router)#network 172.15.0.0 0.0.0.3 area 0
+
+Comilla(config-router)#exit
+
+Comilla(config)#exit
+
+Comilla#
+
+ 
+
+Netrakona router OSPF configuration command line
+Netrakona>
+
+Netrakona>en
+
+Netrakona#con
+
+Netrakona#conter
+
+Netrakona#conter
+
+Translating “conter”…domain server (255.255.255.255)
+
+% Unknown command or computer name, or unable to find computer address
+
+ 
+
+Netrakona#con
+
+Netrakona#confi
+
+Netrakona#configure ter
+
+Netrakona#configure terminal
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Netrakona(config)#ro
+
+Netrakona(config)#router os
+
+Netrakona(config)#router ospf 10
+
+Netrakona(config-router)#net
+
+Netrakona(config-router)#network 192.168.3.0 0.0.0.255
+
+% Incomplete command.
+
+Netrakona(config-router)#network 192.168.3.0 0.0.0.255 ar
+
+Netrakona(config-router)#network 192.168.3.0 0.0.0.255 area 0
+
+Netrakona(config-router)#net
+
+Netrakona(config-router)#network 172.17.0.0 0.0.0.3 ar
+
+Netrakona(config-router)#network 172.17.0.0 0.0.0.3 area 0
+
+Netrakona(config-router)#net
+
+Netrakona(config-router)#network 172.16
+
+00:13:28: %OSPF-5-ADJCHG: Process 10, Nbr 192.168.2.1 on Ethernet0/0/0 from LOADING to FULL, Loading Done
+
+Netrakona(config-router)#network 172.16.0.0 0.0.0.3 are
+
+Netrakona(config-router)#network 172.16.0.0 0.0.0.3 area 0
+
+Netrakona(config-router)#
+
+00:14:18: %OSPF-5-ADJCHG: Process 10, Nbr 192.168.1.1 on FastEthernet0/1 from EXCHANGE to FULL, Exchange Done
+
+ 
+
+Netrakona(config-router)#exit
+
+Netrakona(config)#exit
+
+Netrakona#
+
+%SYS-5-CONFIG_I: Configured from console by console
+
+ 
+
+Netrakona#
+
+link: https://www.tsoftit.com/tutorial/ccna-bangla-%e0%a6%b2%e0%a7%87%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0-%e0%a7%a7%e0%a7%a7-%e0%a6%a1%e0%a6%be%e0%a7%9f%e0%a6%a8%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%95-%e0%a6%b0%e0%a6%be/
